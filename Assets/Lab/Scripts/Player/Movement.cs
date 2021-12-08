@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Lab.Scripts.Util;
+using UnityEngine;
 
 namespace Lab.Scripts.Player {
 public class Movement : MonoBehaviour {
@@ -7,8 +8,10 @@ public class Movement : MonoBehaviour {
     private float _applySpeed;
 
     private bool _isRun;
+    private Stamina _stamina;
 
     private void Start() {
+        _stamina = FindObjectOfType<Stamina>();
         _applySpeed = walkSpeed;
     }
 
@@ -19,10 +22,10 @@ public class Movement : MonoBehaviour {
     }
     
     private void Run() {
-        if (Input.GetKey(KeyCode.LeftShift)) {
+        if (Input.GetKey(KeyCode.LeftShift) && _stamina.GetCurrentSp() > 0) {
             Running();
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift)) {
+        if (Input.GetKeyUp(KeyCode.LeftShift) || _stamina.GetCurrentSp() <= 0) {
             RunningCancel();
         }
     }
@@ -35,7 +38,9 @@ public class Movement : MonoBehaviour {
     }
     
     private void Running() {
+        if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))) return;
         _isRun = true;
+        _stamina.DecreaseStamina(1);
         _applySpeed = runSpeed;
     }
 
