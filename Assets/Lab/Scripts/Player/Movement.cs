@@ -1,5 +1,4 @@
-﻿using System;
-using Lab.Scripts.Util;
+﻿using Lab.Scripts.Util;
 using UnityEngine;
 
 namespace Lab.Scripts.Player {
@@ -19,18 +18,20 @@ public class Movement : MonoBehaviour {
     private void Update() {
         // Player movement
         Move();
-    }
-
-    private void FixedUpdate() {
         Run();
     }
 
+    private void FixedUpdate() {
+        CheckRunning();
+    }
+
     private void Run() {
+        if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))) return;
         if (Input.GetKey(KeyCode.LeftShift) && _stamina.GetCurrentSp() > 0) {
-            Running();
+            _isRun = true;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift) || _stamina.GetCurrentSp() <= 0) {
-            RunningCancel();
+            _isRun = false;
         }
     }
     
@@ -40,17 +41,16 @@ public class Movement : MonoBehaviour {
         
         transform.Translate(moveDirX * _applySpeed * Time.deltaTime, 0, moveDirZ * _applySpeed * Time.deltaTime);
     }
-    
-    private void Running() {
-        if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))) return;
-        _isRun = true;
-        _stamina.DecreaseStamina(1);
-        _applySpeed = runSpeed;
-    }
 
-    private void RunningCancel() {
-        _isRun = false;
-        _applySpeed = walkSpeed;
+    private void CheckRunning() {
+        if (_isRun) {
+            _isRun = true;
+            _stamina.DecreaseStamina(1);
+            _applySpeed = runSpeed;
+        } else {
+            _isRun = false;
+            _applySpeed = walkSpeed;
+        }
     }
 }
 }
