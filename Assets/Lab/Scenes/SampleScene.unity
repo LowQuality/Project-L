@@ -2919,6 +2919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 4
   runSpeed: 15
+  decreaseStaminaRate: 1
 --- !u!114 &1373343723
 MonoBehaviour:
   m_ObjectHideFlags: 0
