@@ -17,7 +17,7 @@ public class Stamina : MonoBehaviour {
         _currentSp = spMax;
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         SpRechargeTime();
         SpRecover();
     }
@@ -26,11 +26,9 @@ public class Stamina : MonoBehaviour {
         _spUsed = true;
         _currentSpRechargeTime = 0;
 
-        if (_currentSp - count > 0)
-        {
+        if (_currentSp - count > 0) {
             _currentSp -= count;
-        }
-        else
+        } else
             _currentSp = 0;
     }
 

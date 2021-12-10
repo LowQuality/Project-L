@@ -1,4 +1,5 @@
-﻿using Lab.Scripts.Util;
+﻿using System;
+using Lab.Scripts.Util;
 using UnityEngine;
 
 namespace Lab.Scripts.Player {
@@ -18,9 +19,12 @@ public class Movement : MonoBehaviour {
     private void Update() {
         // Player movement
         Move();
+    }
+
+    private void FixedUpdate() {
         Run();
     }
-    
+
     private void Run() {
         if (Input.GetKey(KeyCode.LeftShift) && _stamina.GetCurrentSp() > 0) {
             Running();
