@@ -6,13 +6,14 @@ public class CameraMovement : MonoBehaviour {
     [SerializeField] private float lookSensitivity;
 
     // Camera Rotation Limit
-    [SerializeField] private float cameraRotationLimit;
-    private float _currentCameraRotationX;
+    [SerializeField] private float cameraRotationLimitMin;
+    [SerializeField] private float cameraRotationLimitMax;
     
     // Component
     [SerializeField] private Camera getCamera;
     
     private Rigidbody _rigidbody;
+    private float _xRotate;
     
     private void Start() {
         getCamera = FindObjectOfType<Camera>();
@@ -30,20 +31,16 @@ public class CameraMovement : MonoBehaviour {
     }
     
     private void CameraRotation() {
-        var xRotation = Input.GetAxisRaw("Mouse Y");
-        var cameraRotationX = xRotation * lookSensitivity;
+        var xRotateSize = -Input.GetAxis("Mouse Y") * lookSensitivity;
+        _xRotate = Mathf.Clamp(_xRotate + xRotateSize, cameraRotationLimitMin, cameraRotationLimitMax);
 
-        _currentCameraRotationX -= cameraRotationX;
-        _currentCameraRotationX = Mathf.Clamp(_currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
-
-        getCamera.transform.localEulerAngles = new Vector3(_currentCameraRotationX, 0f, 0f);
+        getCamera.transform.localEulerAngles = new Vector3(_xRotate, 0f, 0f);
     }
-
+    
     private void CharacterRotation() {
-        var yRotation = Input.GetAxisRaw("Mouse X");
-        var characterRotationY = new Vector3(0f, yRotation, 0f) * lookSensitivity;
-
-        _rigidbody.MoveRotation(_rigidbody.rotation * Quaternion.Euler(characterRotationY));
+        var yRotateSize = Input.GetAxis("Mouse X") * lookSensitivity;
+        
+        _rigidbody.MoveRotation(_rigidbody.rotation * Quaternion.Euler(new Vector3(0f, yRotateSize, 0f)));
     }
 }
 }
