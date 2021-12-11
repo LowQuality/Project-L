@@ -673,7 +673,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Build : 2021-12-11 0002'
+  m_Text: 'Build : 2021-12 0002'
 --- !u!222 &223974229
 CanvasRenderer:
   m_ObjectHideFlags: 0
