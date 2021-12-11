@@ -11,13 +11,10 @@ public class CameraMovement : MonoBehaviour {
     
     // Component
     [SerializeField] private Camera getCamera;
-    
-    private Rigidbody _rigidbody;
     private float _xRotate;
     
     private void Start() {
         getCamera = FindObjectOfType<Camera>();
-        _rigidbody = GetComponent<Rigidbody>();
         
         // Hide and lock cursor
         Cursor.visible = false;
@@ -40,7 +37,7 @@ public class CameraMovement : MonoBehaviour {
     private void CharacterRotation() {
         var yRotateSize = Input.GetAxis("Mouse X") * lookSensitivity;
         
-        _rigidbody.MoveRotation(_rigidbody.rotation * Quaternion.Euler(new Vector3(0f, yRotateSize, 0f)));
+        transform.Rotate(0f, yRotateSize, 0f);
     }
 }
 }

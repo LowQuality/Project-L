@@ -637,8 +637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 801.3992, y: 522.6603}
-  m_SizeDelta: {x: 317.2015, y: 34.679}
+  m_AnchoredPosition: {x: 776.47925, y: 522.66003}
+  m_SizeDelta: {x: 367.0415, y: 34.679}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &223974228
 MonoBehaviour:
@@ -667,13 +667,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 2
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Build : 2021-12-11 0001'
+  m_Text: 'Build : 2021-12-11 0002'
 --- !u!222 &223974229
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2982,7 +2982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f80a9edbc8bb6f41b98f785e61ffee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookSensitivity: 3
+  lookSensitivity: 1
   cameraRotationLimitMin: -60
   cameraRotationLimitMax: 60
   getCamera: {fileID: 963194227}

@@ -14,6 +14,9 @@ public class Movement : MonoBehaviour {
     private void Start() {
         _stamina = FindObjectOfType<Stamina>();
         _applySpeed = walkSpeed;
+        
+        // Debug (TODO: remove)
+        Debug.Log(Application.version);
     }
 
     private void Update() {
