@@ -1,15 +1,19 @@
 using UnityEngine;
 
-namespace Lab.Scripts.UI {
-public class FPS : MonoBehaviour {
+namespace Lab.Scripts.UI
+{
+public class FPS : MonoBehaviour
+{
     // FROM http://wiki.unity3d.com/index.php?title=FramesPerSecond
     private float _deltaTime;
 
-    private void Update() {
+    private void Update()
+    {
         _deltaTime += (Time.deltaTime - _deltaTime) * 0.1f;
     }
 
-    private void OnGUI() {
+    private void OnGUI()
+    {
         int w = Screen.width, h = Screen.height;
 
         var style = new GUIStyle();

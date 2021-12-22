@@ -1,20 +1,25 @@
 ﻿using Lab.Scripts.Util;
 using UnityEngine;
 
-namespace Lab.Scripts.UI {
-public class Gauge : MonoBehaviour {
+namespace Lab.Scripts.UI
+{
+public class Gauge : MonoBehaviour
+{
     private Stamina _stamina;
     private int _sp;
 
-    private void Start() {
+    private void Start()
+    {
         _stamina = FindObjectOfType<Stamina>();
     }
 
-    private void Update() {
-        _sp = (int) _stamina.GetCurrentSp();
+    private void Update()
+    {
+        _sp = (int)_stamina.GetCurrentSp();
     }
-    
-    private void OnGUI() {
+
+    private void OnGUI()
+    {
         int w = Screen.width, h = Screen.height;
 
         var style = new GUIStyle();
