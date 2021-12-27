@@ -347,8 +347,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -664,6 +664,7 @@ GameObject:
   - component: {fileID: 2076469988}
   - component: {fileID: 2076469987}
   - component: {fileID: 2076469986}
+  - component: {fileID: 2076469989}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -735,8 +736,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1787404733}
-        m_TargetAssemblyTypeName: Lab.Scripts.UI.Button, Assembly-CSharp
+      - m_Target: {fileID: 2076469989}
+        m_TargetAssemblyTypeName: Lab.Scripts.UI.MainMenu, Assembly-CSharp
         m_MethodName: GameStart
         m_Mode: 1
         m_Arguments:
@@ -785,3 +786,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076469984}
   m_CullTransparentMesh: 1
+--- !u!114 &2076469989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076469984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e948aa92d9b5840a2e348ed0e049fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
