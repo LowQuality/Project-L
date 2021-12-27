@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
 
     private bool _isRun;
     private bool _isBorder;
+    private static bool _canMove;
     private Stamina _stamina;
     private CharacterController _controller;
     private Vector3 _moveDir;
@@ -33,6 +34,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        if (!_canMove) return;
         Move();
         Run();
 
@@ -81,6 +83,11 @@ public class Movement : MonoBehaviour
             _isRun = false;
             _applySpeed = walkSpeed;
         }
+    }
+    
+    public static void SetMovement(bool canMove)
+    {
+        _canMove = canMove;
     }
 }
 }

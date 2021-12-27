@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Lab.Scripts.Player
 {
@@ -14,21 +15,32 @@ public class CameraMovement : MonoBehaviour
     // Component
     [SerializeField] private Camera getCamera;
     private float _xRotate;
+    public static bool isPaused;
 
     private void Start()
     {
         getCamera = FindObjectOfType<Camera>();
-
-        // Hide and lock cursor
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
     {
-        // Camera Movement
-        CameraRotation();
-        CharacterRotation();
+        // Pause
+        if (isPaused)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Movement.SetMovement(false);
+        }
+        else
+        {
+            // Camera Movement
+            CameraRotation();
+            CharacterRotation();
+            
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Movement.SetMovement(true);
+        }
     }
 
     private void CameraRotation()

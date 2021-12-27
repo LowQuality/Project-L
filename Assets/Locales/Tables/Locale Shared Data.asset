@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Locale Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Locale
+  m_TableCollectionNameGuidString: 4957aeb3109bc7c4087a664e0c06193e
+  m_Entries:
+  - m_Id: 26549288960
+    m_Key: UI.MainMenu.NewGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160540524544
+    m_Key: UI.MainMenu.Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374139650048
+    m_Key: "UI.MainMenu.Quit\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 422596444160
+    m_Key: "UI.BuildNumber\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 527617622016
+    m_Key: "UI.Stamina\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 611042328576
+    m_Key: "UI.PauseMenu.Resume\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 673738784768
+    m_Key: "UI.PauseMenu.Settings\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 744320532480
+    m_Key: "UI.PauseMenu.Quit\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 398817769160704
+    m_Key: UI.SettingsMenu.MainName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 398913982300160
+    m_Key: UI.SettingsMenu.SaveNExit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 404175585673216
+    m_Key: UI.SettingsMenu.GamePlayName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 406914692677632
+    m_Key: UI.SettingsMenu.Language
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1640521908192
