@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 85614101}
   - component: {fileID: 85614100}
   - component: {fileID: 85614099}
+  - component: {fileID: 85614102}
   m_Layer: 0
   m_Name: BuildNumber
   m_TagString: Untagged
@@ -352,7 +353,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables:
-    - name: buildNumber
+    - name: STM
       variable:
         id: 0
   m_FormatArguments: []
@@ -374,9 +375,9 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: StringVariable, ns: UnityEngine.Localization.SmartFormat.PersistentVariables, asm: Unity.Localization}
+      type: {class: ObjectVariable, ns: UnityEngine.Localization.SmartFormat.PersistentVariables, asm: Unity.Localization}
       data:
-        m_Value: 2021-12 0006
+        m_Value: {fileID: 85614102}
 --- !u!114 &85614100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +475,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85614097}
   m_CullTransparentMesh: 1
+--- !u!114 &85614102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85614097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ea42ceaf9c2db418dd0b42dc37ef38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizeString: {fileID: 85614099}
+  buildNumber: Null
 --- !u!1 &101246598
 GameObject:
   m_ObjectHideFlags: 0

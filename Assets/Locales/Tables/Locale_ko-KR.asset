@@ -32,7 +32,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 422596444160
-    m_Localized: "\uBE4C\uB4DC : {buildNumber}\r"
+    m_Localized: "\uBE4C\uB4DC : {STM.buildNumber}\r"
     m_Metadata:
       m_Items:
       - id: 0
