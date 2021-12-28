@@ -48,7 +48,7 @@ public class Movement : MonoBehaviour
 
     private void Run()
     {
-        var move = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
+        var move = (Input.GetKey(KeyCode.W)) && !Input.GetKey(KeyCode.S);
         var run = Input.GetKey(KeyCode.LeftShift);
         var stamina = _stamina.GetCurrentSp();
         if (move && run && stamina > 0)
