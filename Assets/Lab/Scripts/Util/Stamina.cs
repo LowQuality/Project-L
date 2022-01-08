@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Lab.Scripts.Util
 {
@@ -14,10 +15,23 @@ public class Stamina : MonoBehaviour
     private int _currentSpRechargeTime;
 
     private bool _spUsed;
+    
+    // UI
+    [SerializeField] private GameObject staminaUI;
+    [SerializeField] private Image staminaBar;
 
     private void Start()
     {
         _currentSp = spMax;
+    }
+
+    private void Update()
+    {
+        // StaminaUI Update
+        staminaBar.fillAmount = GetCurrentSp() / spMax;
+        
+        // Hide Stamina UI when Full Stamina
+        staminaUI.SetActive((int)GetCurrentSp() != (int)spMax);
     }
 
     private void FixedUpdate()

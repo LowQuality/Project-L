@@ -1,5 +1,4 @@
-﻿
-using Lab.Scripts.Util;
+﻿using Lab.Scripts.Util;
 using UnityEngine;
 
 namespace Lab.Scripts.Player
