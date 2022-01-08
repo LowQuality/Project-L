@@ -16,7 +16,41 @@ MonoBehaviour:
   m_Tables:
   - {fileID: 11400000, guid: 6be7f46b48d46ee46a287db2ecdf5299, type: 2}
   - {fileID: 11400000, guid: 08ef692977b6a88418c321b389fa5d05, type: 2}
-  m_Extensions: []
-  m_Group: String Table
+  m_Extensions:
+  - id: 0
+  m_Group: Locale
   references:
     version: 1
+    00000000:
+      type: {class: CsvExtension, ns: UnityEditor.Localization.Plugins.CSV, asm: Unity.Localization.Editor}
+      data:
+        m_Collection: {fileID: 11400000}
+        m_ColumnsList:
+        - id: 1
+        - id: 2
+        - id: 3
+        m_ConnectedFile: 
+    00000001:
+      type: {class: KeyIdColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns, asm: Unity.Localization.Editor}
+      data:
+        m_IncludeId: 1
+        m_IncludeSharedComments: 1
+        m_KeyFieldName: Key
+        m_IdFieldName: Id
+        m_CommentFieldName: ---
+    00000002:
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns, asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: en-US
+        m_FieldName: en-US
+        m_CommentFieldName: en-US Comments
+        m_IncludeComments: 1
+    00000003:
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns, asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: ko-KR
+        m_FieldName: ko-KR
+        m_CommentFieldName: ko-KR Comments
+        m_IncludeComments: 1

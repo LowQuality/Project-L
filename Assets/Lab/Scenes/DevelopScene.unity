@@ -6409,7 +6409,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373343715}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6480,8 +6480,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookSensitivity: 1
-  cameraRotationLimitMin: -60
-  cameraRotationLimitMax: 60
+  cameraRotationLimitMin: -80
+  cameraRotationLimitMax: 80
   getCamera: {fileID: 963194227}
 --- !u!114 &1373343722
 MonoBehaviour:
