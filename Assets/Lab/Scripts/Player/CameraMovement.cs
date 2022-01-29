@@ -14,17 +14,18 @@ public class CameraMovement : MonoBehaviour
     // Component
     [SerializeField] private Camera getCamera;
     private float _xRotate;
-    public static bool isPaused;
+    public static bool IsPaused;
 
     private void Start()
     {
         getCamera = FindObjectOfType<Camera>();
+        IsPaused = false;
     }
 
     private void Update()
     {
         // Pause
-        if (isPaused)
+        if (IsPaused)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;

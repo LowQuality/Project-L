@@ -1,5 +1,6 @@
 ﻿using Lab.Scripts.Player;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Lab.Scripts.UI
 {
@@ -10,15 +11,15 @@ public class PauseMenu : MonoBehaviour
     private void Update()
     {
         if (!Input.GetKeyDown(KeyCode.Escape)) return;
-        if (!CameraMovement.isPaused)
+        if (!CameraMovement.IsPaused)
         {
-            CameraMovement.isPaused = true;
+            CameraMovement.IsPaused = true;
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
         }
         else
         {
-            CameraMovement.isPaused = false;
+            CameraMovement.IsPaused = false;
             pauseMenu.SetActive(false);
             settingsMenu.SetActive(false);
             Time.timeScale = 1f;
@@ -27,7 +28,7 @@ public class PauseMenu : MonoBehaviour
     
     public void ClickResume()
     {
-        CameraMovement.isPaused = false;
+        CameraMovement.IsPaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -36,6 +37,12 @@ public class PauseMenu : MonoBehaviour
     {
         settingsMenu.SetActive(true);
         SettingsMenu.IsInMainMenu = true;
+    }
+    
+    public void ClickGoTitle()
+    {
+        SceneManager.LoadScene("Title"); 
+        Time.timeScale = 1f;
     }
     
     public void ClickQuit()

@@ -63,6 +63,10 @@ MonoBehaviour:
     m_Key: UI.SettingsMenu.Language
     m_Metadata:
       m_Items: []
+  - m_Id: 12268249369935872
+    m_Key: UI.PauseMenu.Title
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
