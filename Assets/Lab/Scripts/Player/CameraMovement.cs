@@ -10,10 +10,16 @@ public class CameraMovement : MonoBehaviour
     // Camera Rotation Limit
     [SerializeField] private float cameraRotationLimitMin;
     [SerializeField] private float cameraRotationLimitMax;
+    
+    // FreeLook Camera Rotation Limit
+    [SerializeField] private float freeLookCameraRotationLimitMin;
+    [SerializeField] private float freeLookCameraRotationLimitMax;
 
     // Component
     [SerializeField] private Camera getCamera;
     private float _xRotate;
+    private float _xRotateFreeLook;
+    private float _yRotate;
     public static bool IsPaused;
 
     private void Start()
@@ -43,19 +49,40 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
-    private void CameraRotation()
-    {
-        var xRotateSize = -Input.GetAxis("Mouse Y") * lookSensitivity;
-        _xRotate = Mathf.Clamp(_xRotate + xRotateSize, cameraRotationLimitMin, cameraRotationLimitMax);
-
-        getCamera.transform.localEulerAngles = new Vector3(_xRotate, 0f, 0f);
-    }
-
     private void CharacterRotation()
     {
         var yRotateSize = Input.GetAxis("Mouse X") * lookSensitivity;
 
-        transform.Rotate(0f, yRotateSize, 0f);
+        // Free Look Camera Rotation
+        if (Input.GetKey(KeyCode.LeftAlt))
+        {
+            _yRotate = Mathf.Clamp(_yRotate + yRotateSize, freeLookCameraRotationLimitMin, freeLookCameraRotationLimitMax);
+        }
+        else
+        {
+            _yRotate = 0f;
+            transform.Rotate(0f, yRotateSize, 0f);
+        }
+    }
+
+    private void CameraRotation()
+    {
+        var xRotateSize = -Input.GetAxis("Mouse Y") * lookSensitivity;
+        
+        // Free Look Camera Rotation
+        if (Input.GetKey(KeyCode.LeftAlt))
+        {
+            _xRotateFreeLook = Mathf.Clamp(_xRotateFreeLook + xRotateSize, cameraRotationLimitMin, cameraRotationLimitMax);
+
+            getCamera.transform.localEulerAngles = new Vector3(_xRotateFreeLook, _yRotate, 0f);
+        }
+        else
+        {
+            _xRotateFreeLook = _xRotate;
+            _xRotate = Mathf.Clamp(_xRotate + xRotateSize, cameraRotationLimitMin, cameraRotationLimitMax);
+            
+            getCamera.transform.localEulerAngles = new Vector3(_xRotate, _yRotate, 0f);
+        }
     }
 }
 }
