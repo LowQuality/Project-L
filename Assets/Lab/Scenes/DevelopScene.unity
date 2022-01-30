@@ -400,8 +400,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "UI.BuildNumber\r"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 225ab779d04911e44a3e8d98357a20eb, type: 2}
-  m_sharedMaterial: {fileID: 197294930451101995, guid: 225ab779d04911e44a3e8d98357a20eb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: df900f4b9e4d9564ba2f67cb56738e0a, type: 2}
+  m_sharedMaterial: {fileID: 197294930451101995, guid: df900f4b9e4d9564ba2f67cb56738e0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
