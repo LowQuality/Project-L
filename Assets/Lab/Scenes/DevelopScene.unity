@@ -10224,8 +10224,8 @@ MonoBehaviour:
   lookSensitivity: 1
   cameraRotationLimitMin: -80
   cameraRotationLimitMax: 80
-  freeLookCameraRotationLimitMin: -50
-  freeLookCameraRotationLimitMax: 50
+  freeLookCameraRotationLimitMin: -90
+  freeLookCameraRotationLimitMax: 90
   getCamera: {fileID: 963194227}
 --- !u!136 &2076170523
 CapsuleCollider:
