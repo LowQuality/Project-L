@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
-    // [SerializeField] private float gravity;
+    [SerializeField] private float gravity;
     [SerializeField] private float decreaseStaminaRate;
     private float _applySpeed;
 
@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     private Stamina _stamina;
     private CharacterController _controller;
     private Vector3 _moveDir;
+    private float _moveDirY;
 
     private void Start()
     {
@@ -28,7 +29,7 @@ public class Movement : MonoBehaviour
 
         // Debug (TODO: remove)
         Debug.Log(Application.version);
-        Application.targetFrameRate = 360;
+        // Application.targetFrameRate = 360; || Fixed
     }
 
     private void Update()
@@ -62,11 +63,28 @@ public class Movement : MonoBehaviour
 
     private void Move()
     {
-        _moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        _moveDir = transform.TransformDirection(_moveDir);
-        _moveDir *= _applySpeed;
+        // Old Movement Function
+        // _moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        // _moveDir = transform.TransformDirection(_moveDir);
+        // _moveDir *= _applySpeed;
+        //
+        // _controller.SimpleMove(_moveDir);
 
-        _controller.SimpleMove(_moveDir);
+        if (_controller.isGrounded)
+        {
+            _moveDirY = 0f;
+        }
+        else
+        {
+            _moveDirY -= gravity * Time.deltaTime;
+        }
+        
+        _moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), _moveDirY, Input.GetAxisRaw("Vertical"));
+        _moveDir = transform.TransformDirection(_moveDir);
+        
+        _moveDir.y -= gravity * Time.deltaTime;
+        _controller.Move(_moveDir * (_applySpeed * Time.deltaTime));
+
     }
 
     private void CheckRunning()
