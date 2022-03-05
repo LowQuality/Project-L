@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float runSpeed;
     [SerializeField] private float gravity;
     [SerializeField] private float decreaseStaminaRate;
+    [SerializeField] private float raycastMaxDistance;
     private float _applySpeed;
 
     private bool _isRun;
@@ -39,6 +40,7 @@ public class Movement : MonoBehaviour
         Run();
 
         _isBorder = (_controller.collisionFlags & CollisionFlags.Sides) != 0;
+        Debug.DrawRay(transform.position + Vector3.up * 0.1f, Vector3.down * raycastMaxDistance, Color.red);
     }
 
     private void FixedUpdate()
@@ -89,7 +91,7 @@ public class Movement : MonoBehaviour
 
     private void CheckRunning()
     {
-        if (_isRun && _controller.isGrounded && !_isBorder)
+        if (_isRun && IsCheckGrounded() && !_isBorder)
         {
             _isRun = true;
             _stamina.DecreaseStamina(decreaseStaminaRate);
@@ -105,6 +107,15 @@ public class Movement : MonoBehaviour
     public static void SetMovement(bool canMove)
     {
         _canMove = canMove;
+    }
+    
+    private bool IsCheckGrounded()
+    {
+        if (_controller.isGrounded) return true;
+        var position = transform.position;
+        var ray = new Ray(position + Vector3.up * 0.1f, Vector3.down);
+
+        return Physics.Raycast(ray, raycastMaxDistance);
     }
 }
 }

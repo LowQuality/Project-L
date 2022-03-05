@@ -10209,6 +10209,7 @@ MonoBehaviour:
   runSpeed: 10
   gravity: 9.81
   decreaseStaminaRate: 1
+  raycastMaxDistance: 1.5
 --- !u!114 &2076170522
 MonoBehaviour:
   m_ObjectHideFlags: 0
